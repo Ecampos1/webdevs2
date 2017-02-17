@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Towed Vehicles</title>
+    </head>
+    <center>
+    <body>
+        <h1>Towed Vehicles in the City of Chicago</h1>
+        
+        <button id="submit">Click</button>
+        </p>
+        <div id="results"></div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script>
+            /*
+                This script retrieves the towed data information
+                from the City of Chicago Data Portal
+            
+            */
+            
+
+            $(function(){
+                
+                $("#submit").click(function(){
+                
+                    var html = "";
+                    
+                    //  variable to hold the returned data
+                    // base URL to the food inspections data
+                    var baseURL = 'https://data.cityofchicago.org/resource/rp42-fxjt.json';
+                    
+                    // optional filters we're appending - date range and zip
+                    var filters = "";
+                    
+                    // full URL
+                    var url = baseURL + filters;
+                        
+                    $.getJSON(url).done (function (data) {
+                        // TODO:  add script to add data to the DOM
+                        console.log(data);
+                        // loop through the records
+                        var currentDate = data[0].tow_date;
+                        
+                        var sil = 0;
+                        var blk = 0;
+                        var gry = 0;
+                        var whi = 0;
+                        var blu = 0;
+                        var other = 0;
+                        
+                        $.each(data, function(i,v){
+                           if(v.tow_date == currentDate){
+                                if(v.color == "SIL") {
+                                   sil++;
+                               } else if(v.color == "BLK"){
+                                   blk++;
+                               } else if(v.color == "GRY") {
+                                   gry++;
+                               } else if(v.color == "WHI") {
+                                   whi++;
+                               } else if(v.color == "BLU") {
+                                   blu++;
+                               } else {
+                                   other++;
+                               }
+                           }
+                        });
+                        
+                            
+                        
+                        google.charts.load('current', {'packages':['corechart']});
+                      google.charts.setOnLoadCallback(drawChart);
+                      function drawChart() {
+                
+                        var data = google.visualization.arrayToDataTable([
+                          ['Color', 'Number of towed vehicles'],
+                          ['Silver',     sil],
+                          ['Black',      blk],
+                          ['White',  whi],
+                          ['Blue', blu],
+                          ['Gray', gry],
+                          ['Other',    other]
+                        ]);
+                
+                        var options = {
+                          title: "Color of towed vehicles for today's date"
+                        };
+                
+                        var chart = new google.visualization.PieChart(document.getElementById('results'));
+                
+                        chart.draw(data, options);
+                      }
+
+                    }); 
+                    
+                });  
+                
+            }); 
+            
+            
+        </script>
+    </body>
+    </center>
+</html>
