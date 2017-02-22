@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crimes in Chicago</title>
+    </head>
+    <center>
+    <body>
+        <h1>Types of Crimes in Chicago</h1>
+        <button id="submit">Click!</button>
+        <div id="results"></div>
+        
+        <center>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script>
+            /*
+                This script retrieves the towed data information
+                from the City of Chicago Data Portal
+                
+                You are required to enter the information for your vehicle
+                as a license plate number
+            
+            */
+            
+            var towedVehicle;
+            
+            $(function(){
+                
+                $("#submit").click(function(){
+                    
+                    var html = "";
+                    
+                    // base URL to the food inspections data
+                    var baseURL = 'https://data.cityofchicago.org/resource/c4ep-ee5m.json';
+                    
+                    // optional filters we're appending - date range and zip
+                    var filters = "";
+                    
+                    // full URL
+                    var url = baseURL;
+                        
+                    $.getJSON(url).done (function (data) {
+                        // TODO:  add script to add data to the DOM
+                        console.log(data);
+                        // loop through the records
+                        
+                        towedVehicle = data;
+                        
+                        var date = towedVehicle[0].tow_date;
+
+                        var ROBBERY = 0, 
+                            NARCOTICS = 0, 
+                            THEFT = 0,
+                            BATTERY = 0, 
+                            BURGLARY = 0, 
+                            ASSAULT = 0, 
+                            ARSON = 0, 
+                            other = 0;
+                        
+                        if(towedVehicle.length == 0){
+                            html = "No Vehicle Reported";
+                        } else{
+                            $.each(towedVehicle, function(index, value){
+                                if(value.tow_date == date){
+                                    var col = value.primary_type;
+                                    if (col == "ROBBERY")
+                                        ROBBERY++;
+                                    else if(col == "NARCOTICS")
+                                        NARCOTICS++;
+                                    else if(col == "THEFT")
+                                        THEFT++;
+                                    else if(col == "BATTERY")
+                                        BATTERY++;
+                                    else if(col == "BURGLARY")
+                                        BURGLARY++;
+                                    else if(col == "ASSAULT")
+                                        ASSAULT++;
+                                    else if(col == "ARSON" || col == "MAR")
+                                        ARSON++;
+                                    else
+                                        other++;
+                                }
+                            });  // end of .each loop
+                            
+                          
+                          google.charts.load('current', {'packages':['corechart']});
+                    
+                          // Set a callback to run when the Google Visualization API is loaded.
+                          google.charts.setOnLoadCallback(drawChart);
+                    
+                         
+                          function drawChart() {
+                    
+                            // Create the data table.
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('string', 'Car color');
+                            data.addColumn('number', 'Quantity');
+                            data.addRows([
+                              ['ROBBERY', ROBBERY],
+                              ['NARCOTICS', NARCOTICS],
+                              ['THEFT', THEFT],
+                              ['BATTERY', BATTERY],
+                              ['BURGLARY', BURGLARY],
+                              ['ASSAULT', ASSAULT],
+                              ['ARSON', ARSON],
+                              ['Other', other]
+                            ]);
+                    
+                           
+                            var options = {'title':'Different Crimes in Chicago',
+                                           'width':400,
+                                           'height':300};
+                    
+                            // Instantiate and draw our chart, passing in some options.
+                            var chart = new google.visualization.PieChart(document.getElementById('results'));
+                            chart.draw(data, options);
+                          }
+                        }
+                        
+                    }); 
+                    
+                });  
+                
+            });
+            
+            
+        </script>
+        </center>
+    </body>
+    </center>
+</html>
