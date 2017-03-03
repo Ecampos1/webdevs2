@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Towed Vehicles</title>
+        <style>
+            p, h1 {font-family: sans-serif;}
+            p {font-size:1.5em;line-height:1.5em; margin-left: 24px;}
+            pre {font-size: 2em;}
+            .Fail {background-color: red; border: 5px solid blue;}
+            div{border: 5px solid black; margin:10px; border-radius: 5px; background-color: #99ccff;}
+        </style>
+    </head>
+    <body>
+    <h1>Towed Vehicles in the City of Chicago</h1>
+    <p>A script on this page makes a call to the City of Chicago Data Portal to get the data for towed vehicles in Chicago.
+    </p>
+    
+    <p>A couple of things that might help:</p>
+    <ul>
+        <li>jQuery <strong>.append()</strong> method (<a href="http://www.w3schools.com/jquery/html_append.asp">http://www.w3schools.com/jquery/html_append.asp</a>)</li>
+        <br>
+        <li>
+            The Towed Vehicle data set at City of Chicago Data Portal (<a href="https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg">https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg</a>)  
+            Click the <strong>Export</strong> button and expand the <strong>SODA API</strong> panel to see the names of the data elements you'll be able to display.
+        </li>
+        <br>
+        <li>
+                License Plate Number<br>
+                <input type="text" name="Plate Number: " placeholder="Enter plate number">
+                <button>Find My Car</button>
+                <br><br>
+        </li>
+    </ul>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        /*
+            This script retrieves 311 towed vehicle request data for 
+            from the 
+            City of Chicago Data Portal
+            
+            This script doesn't update the DOM.
+        
+        
+        */
+       
+        
+        // base URL to the towed vehicles data
+        var BaseURL = 'https://data.cityofchicago.org/resource/rp42-fxjt.json';
+        
+        // optional filters we're appending - status
+        var filters = '?state=IL';
+        
+        // full URL
+        var Url = BaseURL + filters;
+        
+        console.log (Url);
+        
+        $(
+            // jQuery command to retrieve json data
+            
+            $.getJSON(Url)
+                .done (function (data) {
+                    // TODO:  add script to add data to the DOM
+                    console.log(data);
+                    
+                    // loop through the records
+                    
+                    $.each(data, function(index, value) {
+                      var html = "<div><h1>" + " Tow Date " + "</h1>" +
+                      "<p>Date: " + value.tow_date +
+                      "<br>Make: " + value.make +
+                      "<br>Plate Number: " + value.plate +
+                      "<br>Towed To Adress: " + value.towed_to_address +
+                      "<br>Tow Facility Number: " + value.tow_facility_phone +
+                      "</p>" + 
+                      "</div>";
+                      
+                      $("body").append(html);
+                    });
+                    
+                    
+                    
+                    
+                    
+                    // append content to the body 
+                    
+                    
+                })
+            
+            
+        )
+        
+        
+    </script>
+    </body>
+</html>

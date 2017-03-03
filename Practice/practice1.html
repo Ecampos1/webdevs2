@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Find My Bus</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<style>
+
+
+<style>
+    {background color:gray;}
+    
+    
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: yellow;
+}
+
+li {
+    float: left;
+    border-right:1px solid Blue;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: Black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: green;
+</style>
+<body>
+
+<ul>
+  <br>
+  <br>
+  <li><a class="active" href="http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=MiXUbBVCzukPsxAmBgEgMLyZy&rt=152&stpid=12569">Addison East</a></li>
+  <li><a href="http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=MiXUbBVCzukPsxAmBgEgMLyZy&rt=152&stpid=12569">Addison West</a></li>
+  <li><a href="http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=MiXUbBVCzukPsxAmBgEgMLyZy&rt=49&stpid=12569">Western North</a></li>
+  <li><a href="http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=MiXUbBVCzukPsxAmBgEgMLyZy&rt=49&stpid=12569">Western South</a></li>
+  <li style="float:right"><a href="#about">About</a></li>
+</ul>
+</style>
+</body>
+
+
+ <section id="results"></section>
+
+
+<body>
+
+ 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script>
+        $(function() {
+          
+          
+          var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+          
+          var apiEndpoint = "http://ctabustracker.com/bustime/api/v2/getroutes";
+          
+  
+          $.ajax({
+              url: apiPassThruUrl,
+              dataType: "json",
+              method: 'GET',
+              data: {"apiEndpoint": apiEndpoint,
+                      "key" : "<MiXUbBVCzukPsxAmBgEgMLyZy",
+                      "format":"json", "rt": "152,49,52"}
+            }).done (function (data) {
+              console.log(data);
+              $("body").append("<h1>Bus Routes</h1>");
+             
+              $.each(data["bustime-response"]["routes"], function(i,v) {
+                  $("body").append("Route #" + v.rt + ", " + v.rtnm + "<br>");
+                  console.log($.ajax)
+                  
+                  var html = "<div><h2>"
+                    + value.tablockid
+                    + "<br>"
+                    + "</h2>"
+                    + "<p>" 
+                    + "Type: "
+                    + value.des
+                     + "<br>"
+                     + "Category: "
+                     + value.
+                       + "<br>Address: "
+                       + value.dstp
+                    + "<br>Google Maps: "
+                    + '<a href="https://www.google.com/maps/place/' + googleAddress +'">Google Maps </a>'
+                                        + "<br>Principal: "
+                                        + value.administrator
+                                        + "<br>Website: "
+                                        + value.website
+                                        +'<a href="'  + value.website +'" > Website </a>'
+                                        + "</p></div>";  + value.short_name 
+                                        + "<br>"
+                                        + "</h2>"
+                                        + "<p>" 
+                                        + "Type: "
+                                        + value.school_type
+                                        + "<br>"
+                                        + "Category: "
+                                        + value.primary_category
+                                        + "<br>Address: "
+                                        + value.address
+                                        + "<br>Google Maps: "
+                                        + '<a href="https://www.google.com/maps/place/' + googleAddress +'">Google Maps </a>'
+                                        + "<br>Principal: "
+                                        + value.administrator
+                                        + "<br>Website: "
+                                        + value.website
+                                        +'<a href="'  + value.website +'" > Website </a>'
+                                        + "</p></div>";                                   
+                 
+                  
+                  
+                  
+                    $("#results").append(html);
+                
+              });
+
+            });
+        });
+            
+  
+</script>
+ 
+</body>
+</html>

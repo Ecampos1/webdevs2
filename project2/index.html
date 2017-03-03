@@ -1,21 +1,40 @@
 <!doctype html>
 <html lang="en">
+<center>
 <head>
   <meta charset="utf-8">
-  <title>jQuery.parseXML demo</title>
+  <title>CTA Bus App</title>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  
+  <style>
+    h1 {border: 2px solid black; margin:10px; border-radius: 5px; background-color: #F5F5DC;}
+    
+  </style>
+  
 </head>
 <body>
+  
+<h1>Find your stop here!</h1>
 
+
+
+<button type="button" onclick="myFunction();">Find Bus</button>
+
+<br>
+
+<div id = "output">
  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script>
+      
+      function myFunction() {
         $(function() {
           
+          $("#output").html("");
           
           var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
-          
-          var apiEndpoint = "http://ctabustracker.com/bustime/api/v2/getroutes";
+            
+          var apiEndpoint = "http://ctabustracker.com/bustime/api/v2/getpredictions";
           
           
           $.ajax({
@@ -23,22 +42,31 @@
               dataType: "json",
               method: 'GET',
               data: {"apiEndpoint": apiEndpoint,
-                      "key" : "<LZCWiNqYNzjfdW9F9hS82YsfW",
+                      "key" : "LZCWiNqYNzjfdW9F9hS82YsfW",
+                      "stpid" : $("#stopChoice").val(),
                       "format":"json"}
             }).done (function (data) {
               console.log(data);
-              $("body").append("<h1>Bus Routes</h1>");
+              
+              
+              $("#output").append("<br><h2>Nearby Buses</h2>");
              
-              $.each(data["bustime-response"]["routes"], function(i,v) {
-                  $("body").append("Route #" + v.rt + ", " + v.rtnm + "<br>");
-                
-              })
+              
+              $.each(data["bustime-response"]["prd"], function(i,v) {
+                  $("#output").append(
+                    "<p>Stop: " 
+                    + v.stpnm 
+                     
+                    + "</p>");
+              });
 
             });
-        });
             
-  
+        });
+      }
+      
 </script>
- 
+</div>
 </body>
+</center>
 </html>
