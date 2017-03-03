@@ -6,65 +6,89 @@
   <title>CTA Bus App</title>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  
   <style>
-    h1 {border: 2px solid black; margin:10px; border-radius: 5px; background-color: #F5F5DC;}
+    h1 {}
+    .demo-list-action {width: 300px; }
+    #stopChoice {width: 200px; }
+    body {}
+    .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+    padding-right: 0; 
+    }
     
   </style>
   
-</head>
-<body>
+  </head>
   
-<h1>Find your stop here!</h1>
+  <body>
+    
+    <h1>
+      Bus Tracker
+    </h1>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2967.5043033035836!2d-87.69026798505014!3d41.946501879216754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd27004c25275%3A0x904690c0a62cec78!2sWestern+%26+Addison!5e0!3m2!1sen!2sus!4v1488558623543" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-
-
-<button type="button" onclick="myFunction();">Find Bus</button>
-
-<br>
-
-<div id = "output">
- 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script>
-      
-      function myFunction() {
-        $(function() {
-          
-          $("#output").html("");
-          
-          var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+  <select name="Stops" id="stopChoice">
+    
+  </select>
+  
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="button" onclick="myFunction();">Find Times</button>
+  
+  <br>
+  
+  <div id = "output">
+   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+        
+        function myFunction() {
+          $(function() {
             
-          var apiEndpoint = "http://ctabustracker.com/bustime/api/v2/getpredictions";
-          
-          
-          $.ajax({
-              url: apiPassThruUrl,
-              dataType: "json",
-              method: 'GET',
-              data: {"apiEndpoint": apiEndpoint,
-                      "key" : "LZCWiNqYNzjfdW9F9hS82YsfW",
-                      "stpid" : $("#stopChoice").val(),
-                      "format":"json"}
-            }).done (function (data) {
-              console.log(data);
+            $("#output").html("");
+            
+            var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
               
-              
-              $("#output").append("<br><h2>Nearby Buses</h2>");
-             
-              
-              $.each(data["bustime-response"]["prd"], function(i,v) {
-                  $("#output").append(
-                    "<p>Stop: " 
-                    + v.stpnm 
-                     
-                    + "</p>");
+            var apiEndpoint = "http://ctabustracker.com/bustime/api/v2/getpredictions";
+            
+            
+            $.ajax({
+                url: apiPassThruUrl,
+                dataType: "json",
+                method: 'GET',
+                data: {"apiEndpoint": apiEndpoint,
+                        "key" : "LZCWiNqYNzjfdW9F9hS82YsfW",
+                        "stpid" : $("#stopChoice").val(),
+                        "format":"json"}
+              }).done (function (data) {
+                console.log(data);
+                
+                
+                $("#output").append("<br><h2>Nearby Buses</h2>");
+               
+                
+                $.each(data["bustime-response"]["prd"], function(i,v) {
+                    $("#output").append(
+                      "<p>Stop: " 
+                      + v.stpnm 
+                      + "<br>Direction: " 
+                      + v.rtdir 
+                      + "<br>Arrival time: " 
+                      + v.prdtm  
+                      + "<br>Distance Away: " 
+                      + v.dstp 
+                      + " feet<br>Bus ID: " 
+                      + v.vid 
+                      + "</p>");
+                });
+  
               });
-
-            });
-            
-        });
-      }
-      
+              
+          });
+        }
+        
 </script>
 </div>
 </body>
