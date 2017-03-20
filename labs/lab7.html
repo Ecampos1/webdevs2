@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pothole Service Request</title>
+        <style>
+            p, h1 {font-family: sans-serif;}
+            p {font-size:1.5em;line-height:1.5em; margin-left: 24px;}
+            pre {font-size: 2em;}
+            .Fail {background-color: red; border: 5px solid blue;}
+            div{border: 5px solid black; margin:4px; border-radius: 5px; background-color: #ededed;}
+            .template{display: none;}
+            
+        </style>
+    </head>
+    <body>
+    <h1>Open pot hole service requests</h1>
+    
+    <div class="template potholes">
+        <h1 class="serviceType"></h1>
+        <p>
+            Service Request Number: <span class="number"></span>
+            <br>
+            Status: <span class="status"></span>
+        </p>
+    </div>
+    
+    <div id="results">
+        
+    </div>
+    
+    <p>A script on this page makes a call to the City of Chicago Data Portal to get Food Inspection data for zip 60618 for the 4th quarter of 2016.  The results are logged to the console and are stored as a variable named <strong>inspections</strong>.  You'll modify the script to update the DOM by adding inspections information to the body element.
+    </p>
+    
+    <p>A couple of things that might help:</p>
+    <ul>
+        <li>jQuery <strong>.append()</strong> method (<a href="http://www.w3schools.com/jquery/html_append.asp">http://www.w3schools.com/jquery/html_append.asp</a>)</li>
+        <li>
+            The Food Inspection data set at City of Chicago Data Portal (<a href="https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5">https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5</a>)  
+            Click the <strong>Export</strong> button and expand the <strong>SODA API</strong> panel to see the names of the data elements you'll be able to display.
+        </li>
+    </ul>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        /*
+            This script retrieves 311 pot hole service request data data for 
+            from the 
+            City of Chicago Data Portal
+            
+            This script doesn't update the DOM.
+        
+        
+        */
+       
+        
+        // base URL to the food inspections data
+        var BaseURL = 'https://data.cityofchicago.org/resource/787j-mys9.json';
+        
+        // optional filters we're appending - status
+        var filters = '?status=Open';
+        
+        // full URL
+        var Url = BaseURL + filters;
+        
+        console.log (Url);
+        
+        $(
+            // jQuery command to retrieve json data
+            
+            $.getJSON(Url)
+                .done (function (data) {
+                    // TODO:  add script to add data to the DOM
+                    console.log(data);
+                    var clone;
+                    
+                    // loop through the records
+                    
+                    $.each(data, function(index, value) {
+                          
+                        clone = $(".template").clone();
+                        clone.removeClass("template");
+                        clone.find(".serviceType").text(value.type_of_service_request);
+                        clone.find(".number").text(value.service_request_number);
+                        clone.find(".status").text(value.status);
+                            
+                        $("#results").append(clone);
+                                              
+                      
+                      
+                      
+                        //var html = "<div><h1>" + value.type_of_service_request + "</h1>" +
+                          "<p>Status: " + value.status + "<br>" +
+                           value.service_request_number +
+                          "</p>" + 
+                          "</div>";
+                      
+                      //$("body").append(html);
+                        });
+                    
+                    
+                    
+                    
+                    
+                    // append content to the body 
+                    
+                    
+                })
+            
+            
+        )
+        
+        
+    </script>
+    </body>
+</html>
