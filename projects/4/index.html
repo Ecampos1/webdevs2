@@ -5,9 +5,24 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-red.min.css" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
         .screen {
           display: none;
+        }
+        #musicPlayer {
+          display: show;
+        }
+        .demo-card-square.mdl-card {
+          width: 320px;
+          height: 320px;
+        }
+        .demo-card-square > .mdl-card__title {
+          color: #fff;
+          background:
+          url('images/doomsday.jpg') bottom right 15% no-repeat #46B6AC;
         }
       </style>
   </head>
@@ -16,32 +31,283 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
+          <center>
           <!-- Title -->
           <span class="mdl-layout-title">Music App</span>
           <!-- Add spacer, to align navigation to the right -->
+          </center>
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="">Link 1</a>
-            <a class="mdl-navigation__link" href="">Link 2</a>
-            <a class="mdl-navigation__link" href="">Link 3</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-          </nav>
         </div>
       </header>
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Music App</span>
         <nav class="mdl-navigation">
-          <a id="link1" class="mdl-navigation__link" href="#">Recommend Artists/Albums</a>
-          <a id="link2" class="mdl-navigation__link" href="#">Music Services</a>
-          <a id="link3" class="mdl-navigation__link" href="#">Link 3</a>
-          <a class="mdl-navigation__link" href="">Link</a>
+          <a id="link1" class="mdl-navigation__link" href="#">Album of the Week</a>
+          <a id="link2" class="mdl-navigation__link" href="#">Recommend Artists/Albums</a>
+          <a id="link3" class="mdl-navigation__link" href="#">Music Services</a>
+          
         </nav>
       </div>
       <main class="mdl-layout__content">
-        <div id="screen1" class="screen page-content">Screen 1</div>
-        <div id="screen2" class="screen page-content">Screen 2</div>
-        <div id="screen3" class="screen page-content">Screen 3</div>
+        <div id="screen1" class="screen page-content">
+          <center>
+          <h1>Album of the Week</h1>
+
+          <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A3kEtdS2pH6hKcMU9Wioob1" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
+          <br>
+          <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+            <div  class="mdl-card__media">
+                <img class="article-image" src="images/illmatic.jpg" border="0" alt="">
+            </div>
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Illmatic by Nas</h2>
+            </div>
+                <div class="mdl-card__supporting-text">
+                    Nas maintains an unparalleled level of intensity from the bracing opener "N.Y. State of Mind" right to the final bars of "It Ain't Hard To Tell.” Nas' flow is equal parts Rakim-style virtuosity and gritty Kool G Rap-derived storytelling prowess. From the ruthless philosophizing of "Life's a Bitch" to the nostalgic sorrow of "Memory Lane" Nas paints a stirringly vivid portrait of life in the Queensbridge projects that other MCs would be imitating for years to come. An indisputable triumph, Illmatic is a must-hear for anyone with even a passing interest in contemporary music.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://itunes.apple.com/us/album/illmatic/id662324135">Apple Music</a>
+                    <br>
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://reckless.com/index.php?keywords=illmatic&format=&cond=&store=&is_search=true&srch=Search">Reckless Records</a>
+                </div>
+          </center>
+          <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">Edwin's Music App</div>
+                </div>
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+            <div id="screen2" class="screen page-content">
+                <center>
+                <h1>
+                Recommend Albums and Their Respective Artists
+                </h1>
+                </center>
+                <body>
+                  <main class="mdl-layout__content">
+                    <div class="mdl-grid portfolio-max-width">
+                        <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                            <div class="mdl-card__media">
+                                <img src=" images/madvillainy.jpg" border="0" alt="">
+                            </div>
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Madvillainy by Madvillain</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                With razor-sharp verbiage and wildly imaginative beats, this is a classic combination of two hip-hop super-villains in their prime. Metal-faced rap linguist MF Doom spins crime narratives over bopping bass strums on “Meat Grinder,” and cheerfully harmonizes out of tune over orchestral jazz on “Rainbows.” Dusty fingered producer Madlib loops wonders out of obscure vinyl records, whether it’s the melodic drone of “Accordion” or the skipping guitars and koan-like tone of “Shadows of Tomorrow.”
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://itunes.apple.com/us/album/madvillainy/id887699504">Apple Music</a>
+                                <br>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://reckless.com/index.php?keywords=madvillainy&format=&cond=&store=&is_search=true&srch=Search">Reckless Records</a>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                            <div class="mdl-card__media">
+                                <img class="article-image" src="images/acidrap.jpg" border="0" alt="">
+                            </div>
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Acidrap by Chance The Rapper</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Acid Rap gave Chance nation-wide recognition. It was the number one spot of Rolling Stone’s 10 Best Mixtapes of 2013 and it even landed at the No. 63 on Billboard’s Top R&B/Hip-Hop Albums chart after being sold by unauthorized retailers. But social commentary is perhaps Acid Rap’s most distinctive feature. Chance is reminded of watching his friend die in every empty hallway, compares Chicago’s gang violence to Hurricane Katrina, and longs for the days when he could peacefully watch cartoons.
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://soundcloud.com/chancetherapper/sets/chance-the-rapper-acid-rap">SoundCloud</a>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                            <div class="mdl-card__media">
+                                <img class="article-image" src="images/twistedFantasy.jpg" border="0" alt="">
+                            </div>
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">My Beautiful Dark Twisted Fantasy by Kanye West</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                The appropriately titled My Beautiful Dark Twisted Fantasy comes from a heavily scrutinized time in Kanye West’s career. After a series of canceled tour dates and memorable award show appearances, West went into a self-imposed exile from all media and created a masterful artistic response. Lead singles “Power” and “All of the Lights” were reported to have five thousand hours of work put into them, each projecting larger-than-life sounds with intricacy that can be heard down to each snare hit. Even with high-profile contributors Nicki Minaj (“Monster”), Elton John (“All of the Lights”), JAY Z (“So Appalled”, “Monster”), RZA (“Dark Fantasy”, “So Appalled”), and Bon Iver (“Lost in the World”), Kanye is clearly the orchestrator of this extravagant musical exhibition.
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://itunes.apple.com/us/album/my-beautiful-dark-twisted/id403837134">Apple Music</a>
+                                <br>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://reckless.com/index.php?keywords=my+beautiful+dark+twisted+fantasy&format=&cond=&store=&is_search=true&srch=Search">Reckless Records</a>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                            <div  class="mdl-card__media">
+                                <img class="article-image" src="images/illmatic.jpg" border="0" alt="">
+                            </div>
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Illmatic by Nas</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                 Nas maintains an unparalleled level of intensity from the bracing opener "N.Y. State of Mind" right to the final bars of "It Ain't Hard To Tell.” Nas' flow is equal parts Rakim-style virtuosity and gritty Kool G Rap-derived storytelling prowess. From the ruthless philosophizing of "Life's a Bitch" to the nostalgic sorrow of "Memory Lane" Nas paints a stirringly vivid portrait of life in the Queensbridge projects that other MCs would be imitating for years to come. An indisputable triumph, Illmatic is a must-hear for anyone with even a passing interest in contemporary music.
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://itunes.apple.com/us/album/illmatic/id662324135">Apple Music</a>
+                                <br>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://reckless.com/index.php?keywords=illmatic&format=&cond=&store=&is_search=true&srch=Search">Reckless Records</a>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                            <div class="mdl-card__media">
+                                <img class="article-image" src="images/doomsday.jpg" border="0" alt="">
+                            </div>
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Operation: Doomsday by MF DOOM</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Simultaneously hailed as an underground classic and cast aside as poorly produced backpack rap, Operation: Doomsday inaugurated the reign of MF Doom in underground rap from the early to mid-2000s. The pretext for the album is very similar to that of Marvel Comics supervillain Dr. Doom; after MF Doom, then known as Zevlove X, had been devastated by the death of his brother and K.M.D. accomplice, DJ Sub-Roc in the early '90s, Elektra dropped his group and stopped the release of its second album, Black Bastards, due to its political message and, more specifically, its cover art. Doom was left scarred with a lingering pain that didn't manifest until the late '90s, as hip-hop's only masked supervillain on Bobbito Garcia's Fondle 'Em Records. Carrying the weight of the past on his shoulders, Doom opens and closes Operation: Doomsday with frank and sincere lyrics. In between, however, many of the villain's rhymes are rather hard and piercing. On his subsequent material, he developed a more steady and refined delivery, but on this debut, Doom was at his rawest and, lyrically, most dexterous. The out-of-left-field edge of Doom's production — which features '80s soul and smooth jazz mixed with classic drum breaks — is indeed abstract at times, but his off-kilter rhymes are palatable and absent any pretentiousness. In fact, the album arguably contains some of the freshest rhymes one might have heard around the time of its release. There are more than enough obscure but fun references (i.e. "quick to whip up a script like Rod Serling" on "Go with the Flow," or "MCs, ya style needs Velamints" on "Dead Bent") and quotable jewels from the "on-the-mike Rain Man" to feed on. Nevertheless, one would be hard-pressed to overlook the low-budget mixing that mars some of the LP's presentation. For hardcore Doom fans, the recorded-in-the-basement quality is appealing and representative of his persona as the underdog who "came to destroy rap." In contrast, given his contributions to hip-hop during the 2000s, the masked villain offers this explanation on "Doomsday": "Definition: supervillain/A killer who loves children/One who is well-skilled in destruction as well as buildin'." Even though this album is certainly not for everyone, you can easily respect where the man is coming from. [In 2011, MF Doom’s own label Metal Face Records reissued the album in an Expanded Edition. A bonus disc featuring alternate versions, B-sides, and instrumentals was added along with new cover artwork from Jason Jagel.] 
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://itunes.apple.com/us/album/operation-doomsday-remastered/id1065022633">Apple Music</a>
+                                <br>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://reckless.com/index.php?keywords=operation+doomsday&format=&cond=&store=&is_search=true&srch=Search">Reckless Records</a>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                            <div class="mdl-card__media">
+                                <img class="article-image" src="images/sourSoul.jpg" border="0" alt="">
+                            </div>
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Sour Soul by BADBADNOTGOOD and Ghostface Killah</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Ghostface Killah's 2015 collaboration with Toronto jazz/hip-hop trio BadBadNotGood seems to be turning his 2010s work into a themed trilogy, as his 2013 LP, Twelve Reasons to Die, found the Wu-Tang rapper partnering with Adrian Younge for a '70s slasher-themed release, while 2014's 36 Seasons was action movie-inspired and recorded with Brooklyn band the Revelations. Sour Soul is more abstract, as the title track tells the tale of a character that's a cross between Johnny Mnemonic and a pimp, while the music touches upon a wide range of soundtrack styles from the '60s and '70s, including the soft-porny "Stark's Reality," where vibes and strings float about the speakers. "Tone's Rap" is either semi-drunk funk or the sound of a warped Fat Albert record, and to their credit, BadBadNotGood are more soulful than usual, laying down grooves that could complement any adventurous MC. Ghostface certainly lives up to the task, putting in chuckle-worthy punch lines (take "Sour Soul"'s "they can't feed me food for thought") which carry more weight as the LP evolves into something akin to Terry Gilliam's film Brazil on wax. Out of all of Ghostface's recent albums, this one stuns with its features, as MF Doom ("Ray Gun"), Elzhi ("Gunshowers"), and Danny Brown ("Six Degrees") all spit and kick with left-field excellence, but the run-time barely pushes this one past EP territory, and with two better examples dropped in recent memory, Ghostface art excursion number three doesn't come with that surprise punch. In James Bond terms, Sour Soul is the almost addendum-ish Quantum of Solace as it offers adventurous fans the same opportunities for a quick fix while sacrificing a bit of weight. In Toronto jazz terms, it's verygoodgoodnotbad.
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://itunes.apple.com/us/album/sour-soul/id952769969">Apple Music</a>
+                            </div>
+                        </div>
+                    </div>
+                    </body>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">Edwin's Music App</div>
+                </div>
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </main>
+        
+        
+        </div>
+        
+        <div id="screen3" class="screen page-content">
+        <center>
+        <h1>Music Services</h1>
+        </center>
+        <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src="images/appleLogo.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Apple Music</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Listen to all the music you want, anytime. Plus get curated radio & playlists, recommendations, exclusives, and more. Join Apple Music and try it free for three months.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://www.apple.com/music/">Try It!</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/spotifyLogo.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Spotify Music</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Spotify is now free on mobile and tablet. Listen to the right music, wherever you are. With Spotify, you have access to a world of music. You can listen to artists and albums, or create your own playlist of your favorite songs. Want to discover new music? Choose a ready-made playlist that suits your mood or get personalized recommendations.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://www.spotify.com/us/">Try It!</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src="images/soundcloudLogo.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Soundcloud</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        SoundCloud is the world's largest music and audio streaming platform – 150 million tracks and growing. With a buzzing community of artists and musicians constantly uploading new music, SoundCloud is where you can find the next big artists alongside chart-topping albums, live sets, and mixes for every occasion.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://soundcloud.com/">Try It!</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src="images/googlePlayLogo.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Google Play</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Google Play Music provides free, ad-supported radio for what you’re doing, how you’re feeling, or what you want to hear. Instantly start radio stations based on songs, artists, or albums, or browse by genre, mood, activity, decade, and more. Bring your own music collection with you by uploading 50,000 of your own songs; then listen to them across Android, iOS, and the web, for free.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://play.google.com/store/music?hl=en">Try It!</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/tidalLogo.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Tidal</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Tidal is the world’s first music service with High Fidelity sound quality, High Definition music videos and Curated Editorial by music journalists, artists and experts, making for a simply superior experience. Try it out and see for yourself. 
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://tidal.com/us">Try It!</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/youtubeMusicLogo.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">YouTube Music</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        YouTube Music lets you watch and listen to a nearly endless catalog in an app designed for music discovery. Enjoy music for free with ads, or get YouTube Red.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://www.youtube.com/yt/music/index.html?locale=US">Try It!</a>
+                    </div>
+                </div>
+            </div>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">Edwin's Music App</div>
+                </div>
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </main>        
+
+        </div>
       </main>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -66,4 +332,15 @@
       });
     </script>
   </body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        console.log("Will the service worker register?");
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function(reg){
+            console.log("Yes, it did.");
+          }).catch(function(err) {
+            console.log("No it didn't. This happened: ", err)
+          });
+        }
+    </script>
 </html>
