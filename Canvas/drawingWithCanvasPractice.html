@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Example</title>
+    <style>
+    canvas {
+      border: #333 10px solid;
+    }
+  </style>
+</head>
+ 
+<body>
+    <canvas id="myCanvas" width="550px" height="350px"></canvas>
+    
+    <script>
+        var canvas = document.querySelector("#myCanvas");
+        var context = canvas.getContext("2d");
+        
+            // draw a straight line down 
+            context.moveTo(50, 350);
+            context.lineTo(50, 200);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a horizontal straight line
+            context.moveTo(50, 200);
+            context.lineTo(75, 200);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line
+            context.moveTo(75, 350);
+            context.lineTo(75, 150);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a horizontal straight line
+            context.moveTo(75, 200);
+            context.lineTo(100, 200);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line down 
+            context.moveTo(100, 350);
+            context.lineTo(100, 150);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a horizontal straight line
+            context.moveTo(100, 250);
+            context.lineTo(125, 250);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line down 
+            context.moveTo(125, 350);
+            context.lineTo(125, 250);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a horizontal straight line
+            context.moveTo(75, 150);
+            context.lineTo(100, 150);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line down 
+            context.moveTo(50, 250);
+            context.lineTo(50, 100);
+            
+            // close the path
+            context.closePath();
+            
+             // draw a horizontal straight line
+            context.moveTo(50, 100);
+            context.lineTo(100, 100);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line down 
+            context.moveTo(100, 250);
+            context.lineTo(100, 100);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line up 
+            context.moveTo(70, 100);
+            context.lineTo(70, 50);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line up 
+            context.moveTo(70, 100);
+            context.lineTo(70, 50);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line up 
+            context.moveTo(80, 100);
+            context.lineTo(80, 25);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a horizontal straight line
+            context.moveTo(100, 175);
+            context.lineTo(115, 175);
+            
+            // close the path
+            context.closePath();
+            
+            // draw a straight line down 
+            context.moveTo(115, 175);
+            context.lineTo(115, 250);
+            
+            // close the path
+            context.closePath();
+            
+            // specify what our line looks like
+            context.lineWidth = 5;
+            context.strokeStyle = "black";
+            
+            // get the line drawn to the canvas
+            context.stroke();
+    </script>
+ 
+</body>
+ 
+</html>
